@@ -17,13 +17,11 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     let headlineTextViewPlaceholder: String = "Type the message you want over the photo here"
     let tweetBodyTextViewPlaceholder: String = "Type your tweet here"
+    var exportedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        headlineTextView.delegate = self
-        tweetBodyTextView.delegate = self
-        headlineOverlayLabel.text = "Make your message beautiful, simply type."
-        headlineTextView.text = headlineTextViewPlaceholder
-        tweetBodyTextView.text = tweetBodyTextViewPlaceholder
+        initUIElements()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,8 +32,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
         if textView.restorationIdentifier == "headlineTextView" {
             headlineOverlayLabel.text = headlineTextView.text
-        } else if textView.restorationIdentifier == "tweetBodyTextView" {
-            println("tweet body")
         }
     }
     
@@ -63,12 +59,39 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         return true
     }
+    // -- UITextViewDelegate Methods
+    func initUIElements() {
+        headlineTextView.delegate = self
+        tweetBodyTextView.delegate = self
+        headlineOverlayLabel.text = "Make your message beautiful, simply type."
+        headlineTextView.text = headlineTextViewPlaceholder
+        tweetBodyTextView.text = tweetBodyTextViewPlaceholder
+        tweetImageView.addSubview(headlineOverlayLabel)
+        tweetImageView.userInteractionEnabled = true
+        headlineOverlayLabel.userInteractionEnabled = true
+//        tweetImageView.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
+    // http://www.theappguruz.com/tutorial/ios-text-overlay-image/
+//    func initPanGestureRecognizer() {
+//        var panGesture = UIPanGestureRecognizer(target: <#AnyObject#>, action: <#Selector#>)
+//    }
+    
+    func exportImage() {
+        UIGraphicsBeginImageContext(tweetImageView.bounds.size)
+        var context: CGContextRef = UIGraphicsGetCurrentContext()
+        tweetImageView.layer.renderInContext(context)
+        exportedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
     
     @IBAction func twitterSignInPressed(sender: UIButton) {
+        exportImage()
         var shareOnTwitter: SLComposeViewController =
             SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         shareOnTwitter.setInitialText(tweetBodyTextView.text)
-        shareOnTwitter.addImage(tweetImageView.image)
+        shareOnTwitter.addImage(exportedImage)
         presentViewController(shareOnTwitter, animated: true, completion: nil)
     }
 }
