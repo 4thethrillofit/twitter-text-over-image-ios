@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,27 +18,84 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEV-6N-eqN">
-                                <rect key="frame" x="95" y="518" width="130" height="30"/>
-                                <state key="normal" title="Sign in with Twitter">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="16" y="518" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.10980392156862745" green="0.792156862745098" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="J1B-g4-8P4"/>
+                                    <constraint firstAttribute="width" constant="288" id="T8x-yg-CWs"/>
+                                </constraints>
+                                <state key="normal" title="Post Tweet">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.52807670525602268" green="0.64155375874125875" blue="0.18353612746862194" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="twitterSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XyZ-Hs-snZ"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="tweetBodyTextView" translatesAutoresizingMaskIntoConstraints="NO" id="Gf4-HL-8cA">
+                                <rect key="frame" x="16" y="28" width="288" height="93"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="5De-fp-me2"/>
+                                    <constraint firstAttribute="height" constant="93" id="sI9-mM-jwS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fei_img.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
+                                <rect key="frame" x="16" y="129" width="288" height="144"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="Mbo-ci-O02"/>
+                                    <constraint firstAttribute="height" constant="144" id="oPh-Md-z4Z"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="headlineTextView" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-Sx-re0">
+                                <rect key="frame" x="16" y="273" width="288" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="JYZ-1F-I6G"/>
+                                    <constraint firstAttribute="height" constant="72" id="lGG-Vu-yb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQV-Q0-mQI">
+                                <rect key="frame" x="53" y="163" width="214" height="75"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oEV-6N-eqN" secondAttribute="bottom" constant="20" id="0Xb-8q-qMD"/>
-                            <constraint firstAttribute="centerX" secondItem="oEV-6N-eqN" secondAttribute="centerX" id="fCF-mO-UZ1"/>
+                            <constraint firstItem="Ooo-T8-mjn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="FfQ-0m-lFU"/>
+                            <constraint firstAttribute="centerX" secondItem="oEV-6N-eqN" secondAttribute="centerX" id="GnL-wt-aEW"/>
+                            <constraint firstAttribute="centerX" secondItem="Gf4-HL-8cA" secondAttribute="centerX" id="JJV-73-mZ2"/>
+                            <constraint firstItem="OhX-Sx-re0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JN8-3m-A5J"/>
+                            <constraint firstItem="OhX-Sx-re0" firstAttribute="top" secondItem="Ooo-T8-mjn" secondAttribute="bottom" id="Kdb-f4-og4"/>
+                            <constraint firstItem="Ooo-T8-mjn" firstAttribute="top" secondItem="Gf4-HL-8cA" secondAttribute="bottom" constant="8" id="Kkw-Xv-bsZ"/>
+                            <constraint firstItem="Ooo-T8-mjn" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Lk7-g9-t5q"/>
+                            <constraint firstItem="OhX-Sx-re0" firstAttribute="top" secondItem="Ooo-T8-mjn" secondAttribute="bottom" id="Qaf-e4-7CE"/>
+                            <constraint firstItem="Gf4-HL-8cA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="W7y-fM-WNe"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="oEV-6N-eqN" secondAttribute="bottom" constant="20" id="mzo-0G-SQv"/>
+                            <constraint firstItem="OhX-Sx-re0" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="nII-iM-503"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headlineOverlayLabel" destination="uQV-Q0-mQI" id="Y2X-9N-X2E"/>
+                        <outlet property="headlineTextView" destination="OhX-Sx-re0" id="5NQ-7O-Wiq"/>
+                        <outlet property="tweetBodyTextView" destination="Gf4-HL-8cA" id="AhV-Z1-aZW"/>
+                        <outlet property="tweetImageView" destination="Ooo-T8-mjn" id="6Ne-Pw-obx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="237.33333333333334" y="439.25333333333333"/>
+            <point key="canvasLocation" x="237" y="439"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fei_img.jpg" width="269" height="269"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
