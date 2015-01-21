@@ -14,6 +14,8 @@
 		A5AF1D211A6F4AB10005B82B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5AF1D201A6F4AB10005B82B /* Images.xcassets */; };
 		A5AF1D241A6F4AB10005B82B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5AF1D221A6F4AB10005B82B /* LaunchScreen.xib */; };
 		A5AF1D301A6F4AB10005B82B /* SpruceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D2F1A6F4AB10005B82B /* SpruceTests.swift */; };
+		A5AF1D3A1A6F546B0005B82B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5AF1D391A6F546B0005B82B /* Social.framework */; };
+		A5AF1D3C1A6F57120005B82B /* fei_img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A5AF1D3B1A6F57120005B82B /* fei_img.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		A5AF1D291A6F4AB10005B82B /* SpruceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpruceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF1D2E1A6F4AB10005B82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5AF1D2F1A6F4AB10005B82B /* SpruceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpruceTests.swift; sourceTree = "<group>"; };
+		A5AF1D391A6F546B0005B82B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		A5AF1D3B1A6F57120005B82B /* fei_img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = fei_img.jpg; path = ../../../../../../Desktop/fei_img.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AF1D3A1A6F546B0005B82B /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,7 @@
 		A5AF1D081A6F4AB10005B82B = {
 			isa = PBXGroup;
 			children = (
+				A5AF1D391A6F546B0005B82B /* Social.framework */,
 				A5AF1D131A6F4AB10005B82B /* Spruce */,
 				A5AF1D2C1A6F4AB10005B82B /* SpruceTests */,
 				A5AF1D121A6F4AB10005B82B /* Products */,
@@ -93,6 +99,7 @@
 		A5AF1D141A6F4AB10005B82B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A5AF1D3B1A6F57120005B82B /* fei_img.jpg */,
 				A5AF1D151A6F4AB10005B82B /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -197,6 +204,7 @@
 			files = (
 				A5AF1D1F1A6F4AB10005B82B /* Main.storyboard in Resources */,
 				A5AF1D241A6F4AB10005B82B /* LaunchScreen.xib in Resources */,
+				A5AF1D3C1A6F57120005B82B /* fei_img.jpg in Resources */,
 				A5AF1D211A6F4AB10005B82B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
