@@ -29,8 +29,10 @@ class ViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         initUIElements()
-        populateDefaultImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -116,9 +118,14 @@ class ViewController: UIViewController,
 //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var filterVC = segue.destinationViewController as FilterViewController
-        filterVC.canvasImage = originalImage
-        filterVC.mainVC = self
+        if segue.identifier == "showFilters" {
+            var filterVC = segue.destinationViewController as FilterViewController
+            filterVC.canvasImage = originalImage
+            filterVC.mainVC = self
+        } else if segue.identifier == "showImageSearch" {
+            var imageSearchVC = segue.destinationViewController as ImageSearchViewController
+            imageSearchVC.mainVC = self
+        }
     }
     
     func exportImage() -> UIImage {

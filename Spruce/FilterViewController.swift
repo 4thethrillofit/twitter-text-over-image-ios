@@ -109,33 +109,3 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

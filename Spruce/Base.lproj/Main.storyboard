@@ -65,38 +65,8 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h9q-oZ-py6">
-                                <rect key="frame" x="16" y="341" width="288" height="84"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="0.35000000000000003" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="led-cn-JIa">
-                                    <size key="itemSize" width="80" height="80"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="Ys3-PF-0ri" customClass="ImageCell" customModule="Spruce" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hx1-lN-bsc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="imageView" destination="Hx1-lN-bsc" id="EFB-L1-n1X"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zRq-if-V0g">
-                                <rect key="frame" x="227" y="437" width="77" height="30"/>
+                                <rect key="frame" x="227" y="377" width="77" height="30"/>
                                 <state key="normal" title="Take Photo">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -105,7 +75,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYt-eu-QGC">
-                                <rect key="frame" x="104" y="436" width="112" height="30"/>
+                                <rect key="frame" x="104" y="376" width="112" height="30"/>
                                 <state key="normal" title="Pick from album">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -114,7 +84,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN1-vW-pIX">
-                                <rect key="frame" x="9" y="437" width="87" height="30"/>
+                                <rect key="frame" x="9" y="377" width="87" height="30"/>
                                 <state key="normal" title="Save Locally">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -123,12 +93,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRF-u2-MOX">
-                                <rect key="frame" x="9" y="475" width="42" height="30"/>
+                                <rect key="frame" x="9" y="415" width="42" height="30"/>
                                 <state key="normal" title="Filters">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="U8d-zA-bEy" kind="modal" identifier="showFilters" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="d2F-c1-4cb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXM-Vf-kaM">
+                                <rect key="frame" x="104" y="415" width="101" height="30"/>
+                                <state key="normal" title="Search Photos">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zNa-xs-bJe" kind="modal" identifier="showImageSearch" id="yUs-1d-ku3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -151,7 +130,6 @@
                     <connections>
                         <outlet property="headlineOverlayLabel" destination="uQV-Q0-mQI" id="Y2X-9N-X2E"/>
                         <outlet property="headlineTextView" destination="OhX-Sx-re0" id="5NQ-7O-Wiq"/>
-                        <outlet property="imageCollectionView" destination="h9q-oZ-py6" id="J1F-Ec-zbV"/>
                         <outlet property="tweetBodyTextView" destination="Gf4-HL-8cA" id="AhV-Z1-aZW"/>
                         <outlet property="tweetImageView" destination="Ooo-T8-mjn" id="6Ne-Pw-obx"/>
                     </connections>
@@ -159,6 +137,86 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="769" y="439"/>
+        </scene>
+        <!--Image Search View Controller-->
+        <scene sceneID="5JF-A5-Xf0">
+            <objects>
+                <viewController id="zNa-xs-bJe" customClass="ImageSearchViewController" customModule="Spruce" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="13P-Xa-j03"/>
+                        <viewControllerLayoutGuide type="bottom" id="gLi-79-sDN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OGb-qD-eyt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search photos" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YZ-F0-EWC">
+                                <rect key="frame" x="16" y="51" width="234" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="POk-52-Dk7">
+                                <rect key="frame" x="258" y="51" width="46" height="30"/>
+                                <state key="normal" title="Go">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchBtnTapped:" destination="zNa-xs-bJe" eventType="touchUpInside" id="k1O-aH-9zg"/>
+                                </connections>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="clW-a7-xYG">
+                                <rect key="frame" x="16" y="111" width="288" height="381"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="a9C-b1-56b">
+                                    <size key="itemSize" width="135" height="111"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageSearchResultCell" id="G4c-ny-2Sf" customClass="ImageSearchResultCell" customModule="Spruce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AlR-xb-2nK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <size key="customSize" width="135" height="135"/>
+                                        <connections>
+                                            <outlet property="resultImageView" destination="AlR-xb-2nK" id="DDs-Fs-q7s"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zNa-xs-bJe" id="un7-J6-6EY"/>
+                                    <outlet property="delegate" destination="zNa-xs-bJe" id="Am5-l5-ywb"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPP-WV-qZt">
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backBtnTapped:" destination="zNa-xs-bJe" eventType="touchUpInside" id="1d4-uE-lvR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageResultsCollectionView" destination="clW-a7-xYG" id="QPI-9e-Td7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oM7-i8-vgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="1160"/>
         </scene>
         <!--Filter View Controller-->
         <scene sceneID="Xeb-uG-lxm">
@@ -185,7 +243,7 @@
                                 <rect key="frame" x="16" y="70" width="288" height="478"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gfQ-3u-J60">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="135" height="135"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -195,20 +253,24 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gl-xo-ekY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4gl-xo-ekY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="135" height="135"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="ELK-b1-B4r"/>
-                                                        <constraint firstAttribute="height" constant="100" id="N50-Ue-BCq"/>
+                                                        <constraint firstAttribute="width" constant="135" id="ELK-b1-B4r"/>
+                                                        <constraint firstAttribute="height" constant="135" id="N50-Ue-BCq"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="4gl-xo-ekY" firstAttribute="leading" secondItem="BKS-SH-J2d" secondAttribute="leading" id="5pX-Rb-Zwz"/>
+                                            <constraint firstItem="4gl-xo-ekY" firstAttribute="top" secondItem="BKS-SH-J2d" secondAttribute="top" id="Snb-8Z-77k"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="4gl-xo-ekY" id="J59-w6-xzt"/>
                                         </connections>

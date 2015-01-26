@@ -10,6 +10,8 @@
 		A5319D161A748F2500468944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5319D151A748F2500468944 /* MobileCoreServices.framework */; };
 		A5319D1E1A74D5D100468944 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319D1D1A74D5D100468944 /* FilterViewController.swift */; };
 		A5319D221A74E7D600468944 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319D211A74E7D600468944 /* FilterCell.swift */; };
+		A57A117C1A76EC2A0060B323 /* ImageSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A117B1A76EC2A0060B323 /* ImageSearchResultCell.swift */; };
+		A57A117E1A76EE130060B323 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A117D1A76EE130060B323 /* ImageSearchViewController.swift */; };
 		A585100B1A730D220025F893 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585100A1A730D220025F893 /* ImageCell.swift */; };
 		A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */; };
 		A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D181A6F4AB10005B82B /* Spruce.xcdatamodeld */; };
@@ -36,6 +38,8 @@
 		A5319D151A748F2500468944 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A5319D1D1A74D5D100468944 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		A5319D211A74E7D600468944 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		A57A117B1A76EC2A0060B323 /* ImageSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchResultCell.swift; sourceTree = "<group>"; };
+		A57A117D1A76EE130060B323 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSearchViewController.swift; path = ../ImageSearchViewController.swift; sourceTree = "<group>"; };
 		A585100A1A730D220025F893 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A5AF1D111A6F4AB10005B82B /* Spruce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spruce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF1D151A6F4AB10005B82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -98,7 +102,9 @@
 				A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */,
 				A5AF1D1B1A6F4AB10005B82B /* ViewController.swift */,
 				A5319D1D1A74D5D100468944 /* FilterViewController.swift */,
+				A57A117D1A76EE130060B323 /* ImageSearchViewController.swift */,
 				A5319D211A74E7D600468944 /* FilterCell.swift */,
+				A57A117B1A76EC2A0060B323 /* ImageSearchResultCell.swift */,
 				A5AF1D1D1A6F4AB10005B82B /* Main.storyboard */,
 				A585100A1A730D220025F893 /* ImageCell.swift */,
 				A5AF1D201A6F4AB10005B82B /* Images.xcassets */,
@@ -238,9 +244,11 @@
 			files = (
 				A5AF1D1C1A6F4AB10005B82B /* ViewController.swift in Sources */,
 				A5319D221A74E7D600468944 /* FilterCell.swift in Sources */,
+				A57A117E1A76EE130060B323 /* ImageSearchViewController.swift in Sources */,
 				A585100B1A730D220025F893 /* ImageCell.swift in Sources */,
 				A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */,
 				A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */,
+				A57A117C1A76EC2A0060B323 /* ImageSearchResultCell.swift in Sources */,
 				A5319D1E1A74D5D100468944 /* FilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
