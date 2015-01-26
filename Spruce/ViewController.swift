@@ -8,20 +8,28 @@
 
 import UIKit
 import Social
+import MobileCoreServices
 
-class ViewController: UIViewController, UITextViewDelegate {
+class ViewController: UIViewController,
+                      UITextViewDelegate,
+                      UICollectionViewDataSource,
+                      UICollectionViewDelegate,
+                      UIImagePickerControllerDelegate,
+                      UINavigationControllerDelegate {
     @IBOutlet weak var tweetBodyTextView: UITextView!
     @IBOutlet weak var tweetImageView: UIImageView!
     @IBOutlet weak var headlineOverlayLabel: UILabel!
     @IBOutlet weak var headlineTextView: UITextView!
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     
     let headlineTextViewPlaceholder: String = "Type the message you want over the photo here"
     let tweetBodyTextViewPlaceholder: String = "Type your tweet here"
-    var exportedImage: UIImage!
+    var defaultImages: [UIImage]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUIElements()
+        populateDefaultImages()
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,26 +80,96 @@ class ViewController: UIViewController, UITextViewDelegate {
 //        tweetImageView.contentMode = UIViewContentMode.ScaleAspectFit
     }
     
+    // UICollectionViewDataSource, UICollectionViewDelegate
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+    // --UICollectionViewDataSource, UICollectionViewDelegate
+    
+    // UIImagePickerControllerDelegate
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        let image = info[UIImagePickerControllerOriginalImage] as UIImage
+        tweetImageView.image = image
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    // --UIImagePickerControllerDelegate
+    
+    func populateDefaultImages() {
+        let url = NSURL(string: "https://farm4.staticflickr.com/3251/3089268872_1869860fbf_t.jpg")
+        let data = NSData(contentsOfURL: url!)
+        let image = UIImage(data: data!)!
+        defaultImages = [image, image, image, image, image, image]
+    }
+    
     // http://www.theappguruz.com/tutorial/ios-text-overlay-image/
 //    func initPanGestureRecognizer() {
 //        var panGesture = UIPanGestureRecognizer(target: <#AnyObject#>, action: <#Selector#>)
 //    }
     
-    func exportImage() {
+    func exportImage() -> UIImage {
         UIGraphicsBeginImageContext(tweetImageView.bounds.size)
         var context: CGContextRef = UIGraphicsGetCurrentContext()
         tweetImageView.layer.renderInContext(context)
-        exportedImage = UIGraphicsGetImageFromCurrentImageContext()
+        let exportedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        return exportedImage
+    }
+    
+    @IBAction func saveImageTapped(sender: AnyObject) {
+        let exportedImage = exportImage()
+        UIImageWriteToSavedPhotosAlbum(exportedImage, nil, nil, nil)
+        presentAlert(title: "Success!", message: "Image successfully saved to your library!")
+    }
+    
+    @IBAction func cameraBtnTapped(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            var cameraCtr = UIImagePickerController()
+            cameraCtr.delegate = self
+            cameraCtr.sourceType = UIImagePickerControllerSourceType.Camera
+            cameraCtr.mediaTypes = [kUTTypeImage]
+            cameraCtr.allowsEditing = true
+            presentViewController(cameraCtr, animated: true, completion: nil)
+        } else { presentAlert(message: "No camera available") }
+    }
+    
+    @IBAction func addFilterBtnTapped(sender: AnyObject) {
+        var filterVC = FilterViewController()
+        filterVC.canvasImage = tweetImageView.image
+        filterVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
+        presentViewController(filterVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func importFromPhotoLibBtnTapped(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.PhotoLibrary) {
+            var photoLibCtr = UIImagePickerController()
+            photoLibCtr.delegate = self
+            photoLibCtr.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            photoLibCtr.mediaTypes = [kUTTypeImage]
+            photoLibCtr.allowsEditing = true
+            presentViewController(photoLibCtr, animated: true, completion: nil)
+        } else { presentAlert(message: "No photo lib available") }
     }
     
     @IBAction func twitterSignInPressed(sender: UIButton) {
-        exportImage()
+        let exportedImage = exportImage()
         var shareOnTwitter: SLComposeViewController =
             SLComposeViewController(forServiceType: SLServiceTypeTwitter)
         shareOnTwitter.setInitialText(tweetBodyTextView.text)
         shareOnTwitter.addImage(exportedImage)
         presentViewController(shareOnTwitter, animated: true, completion: nil)
+    }
+    
+    // Utilities
+    
+    func presentAlert(title: String = "Alert", message: String) {
+        var alertCtr = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alertCtr.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        presentViewController(alertCtr, animated: true, completion: nil)
     }
 }

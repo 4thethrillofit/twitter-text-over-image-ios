@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5319D161A748F2500468944 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5319D151A748F2500468944 /* MobileCoreServices.framework */; };
+		A5319D1E1A74D5D100468944 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319D1D1A74D5D100468944 /* FilterViewController.swift */; };
+		A5319D221A74E7D600468944 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5319D211A74E7D600468944 /* FilterCell.swift */; };
+		A585100B1A730D220025F893 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585100A1A730D220025F893 /* ImageCell.swift */; };
 		A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */; };
 		A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D181A6F4AB10005B82B /* Spruce.xcdatamodeld */; };
 		A5AF1D1C1A6F4AB10005B82B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D1B1A6F4AB10005B82B /* ViewController.swift */; };
@@ -29,6 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5319D151A748F2500468944 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		A5319D1D1A74D5D100468944 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		A5319D211A74E7D600468944 /* FilterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		A585100A1A730D220025F893 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A5AF1D111A6F4AB10005B82B /* Spruce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spruce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF1D151A6F4AB10005B82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5319D161A748F2500468944 /* MobileCoreServices.framework in Frameworks */,
 				A5AF1D3A1A6F546B0005B82B /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +75,7 @@
 		A5AF1D081A6F4AB10005B82B = {
 			isa = PBXGroup;
 			children = (
+				A5319D151A748F2500468944 /* MobileCoreServices.framework */,
 				A5AF1D391A6F546B0005B82B /* Social.framework */,
 				A5AF1D131A6F4AB10005B82B /* Spruce */,
 				A5AF1D2C1A6F4AB10005B82B /* SpruceTests */,
@@ -87,7 +97,10 @@
 			children = (
 				A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */,
 				A5AF1D1B1A6F4AB10005B82B /* ViewController.swift */,
+				A5319D1D1A74D5D100468944 /* FilterViewController.swift */,
+				A5319D211A74E7D600468944 /* FilterCell.swift */,
 				A5AF1D1D1A6F4AB10005B82B /* Main.storyboard */,
+				A585100A1A730D220025F893 /* ImageCell.swift */,
 				A5AF1D201A6F4AB10005B82B /* Images.xcassets */,
 				A5AF1D221A6F4AB10005B82B /* LaunchScreen.xib */,
 				A5AF1D181A6F4AB10005B82B /* Spruce.xcdatamodeld */,
@@ -224,8 +237,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5AF1D1C1A6F4AB10005B82B /* ViewController.swift in Sources */,
+				A5319D221A74E7D600468944 /* FilterCell.swift in Sources */,
+				A585100B1A730D220025F893 /* ImageCell.swift in Sources */,
 				A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */,
 				A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */,
+				A5319D1E1A74D5D100468944 /* FilterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +435,7 @@
 				A5AF1D351A6F4AB10005B82B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5AF1D361A6F4AB10005B82B /* Build configuration list for PBXNativeTarget "SpruceTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +444,7 @@
 				A5AF1D381A6F4AB10005B82B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
