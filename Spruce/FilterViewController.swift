@@ -15,13 +15,14 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     var backBtn: UIButton!
     
     let kIntensity = 0.7
+    let placeholderImage = UIImage(named: "Placeholder")
     var filters: [CIFilter] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 150, height: 150)
+        layout.itemSize = CGSize(width: 100, height: 100)
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -39,8 +40,20 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     // UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCell", forIndexPath: indexPath) as FilterCell
-        let filteredImage = applyImageFilter(canvasImage, filter: filters[indexPath.row])
-        cell.imageView.image = filteredImage
+        
+        // prevent the block from re-running if the image has already been filered
+        if cell.imageView.image == nil {
+            cell.imageView.image = placeholderImage
+            let filterQueue: dispatch_queue_t = dispatch_queue_create("FilterQueue", nil)
+            
+            dispatch_async(filterQueue) { () -> Void in
+                let filteredImage = self.applyImageFilter(self.canvasImage, filter: self.filters[indexPath.row])
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    cell.imageView.image = filteredImage
+                })
+            }
+        }
         return cell
     }
     
@@ -95,7 +108,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     }
     
     func applyImageFilter(image: UIImage, filter: CIFilter) -> UIImage {
-        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        let imageData = UIImageJPEGRepresentation(image, 0.1) // low quality thumbnail
         let originalImage = CIImage(data: imageData)
         filter.setValue(originalImage, forKey: kCIInputImageKey)
         
@@ -103,7 +116,7 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         let context = CIContext(options: nil)
         let filteredImage: CIImage = filter.outputImage
         let cgImage: CGImageRef = context.createCGImage(filteredImage, fromRect: filteredImage.extent())
-        return UIImage(CGImage: cgImage)!
+        return UIImage(CGImage: cgImage, scale: 1.0, orientation: UIImageOrientation.Up)!
     }
 }
 
