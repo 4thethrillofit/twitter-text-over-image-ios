@@ -41,24 +41,19 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="7Ee-dg-XA4"/>
+                                </connections>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_canvas_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
                                 <rect key="frame" x="16" y="129" width="288" height="144"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="AAo-uE-ctZ"/>
                                     <constraint firstAttribute="width" constant="288" id="Mbo-ci-O02"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="288" id="Zmj-G7-BMa"/>
                                     <constraint firstAttribute="height" constant="144" id="oPh-Md-z4Z"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="headlineTextView" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-Sx-re0">
-                                <rect key="frame" x="16" y="273" width="288" height="72"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="JYZ-1F-I6G"/>
-                                    <constraint firstAttribute="height" constant="72" id="lGG-Vu-yb8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQV-Q0-mQI">
                                 <rect key="frame" x="53" y="153" width="214" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -110,6 +105,19 @@
                                     <segue destination="zNa-xs-bJe" kind="modal" identifier="showImageSearch" id="yUs-1d-ku3"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="headlineTextView" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-Sx-re0">
+                                <rect key="frame" x="16" y="273" width="288" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="JYZ-1F-I6G"/>
+                                    <constraint firstAttribute="height" constant="72" id="lGG-Vu-yb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Q1S-V4-TVY"/>
+                                </connections>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

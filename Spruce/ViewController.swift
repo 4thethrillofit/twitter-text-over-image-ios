@@ -31,13 +31,30 @@ class ViewController: UIViewController,
         super.viewDidLoad()
         initUIElements()
     }
-    
-    override func viewDidAppear(animated: Bool) {
-//        initUIElements()
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func initUIElements() {
+        tweetImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        tweetImageView.clipsToBounds = true
+        headlineOverlayLabel.text = "Make your message beautiful, simply type."
+        headlineTextView.text = headlineTextViewPlaceholder
+        tweetBodyTextView.text = tweetBodyTextViewPlaceholder
+        tweetImageView.image = originalImage
+        tweetImageView.addSubview(headlineOverlayLabel)
+        tweetImageView.userInteractionEnabled = true
+        headlineOverlayLabel.userInteractionEnabled = true
+    }
+    
+    func exportImage() -> UIImage {
+        UIGraphicsBeginImageContext(tweetImageView.bounds.size)
+        var context: CGContextRef = UIGraphicsGetCurrentContext()
+        tweetImageView.layer.renderInContext(context)
+        let exportedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return exportedImage
     }
     
     // UITextViewDelegate Methods
@@ -71,20 +88,7 @@ class ViewController: UIViewController,
         }
         return true
     }
-    // -- UITextViewDelegate Methods
-    func initUIElements() {
-        headlineTextView.delegate = self
-        tweetBodyTextView.delegate = self
-        headlineOverlayLabel.text = "Make your message beautiful, simply type."
-        headlineTextView.text = headlineTextViewPlaceholder
-        tweetBodyTextView.text = tweetBodyTextViewPlaceholder
-        tweetImageView.image = originalImage
-        tweetImageView.addSubview(headlineOverlayLabel)
-        tweetImageView.userInteractionEnabled = true
-        headlineOverlayLabel.userInteractionEnabled = true
-//        tweetImageView.contentMode = UIViewContentMode.ScaleAspectFit
-    }
-    
+
     // UICollectionViewDataSource, UICollectionViewDelegate
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -95,7 +99,6 @@ class ViewController: UIViewController,
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
-    // --UICollectionViewDataSource, UICollectionViewDelegate
     
     // UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
@@ -104,7 +107,6 @@ class ViewController: UIViewController,
         tweetImageView.image = image
         dismissViewControllerAnimated(true, completion: nil)
     }
-    // --UIImagePickerControllerDelegate
     
     func populateDefaultImages() {
         let url = NSURL(string: "https://farm4.staticflickr.com/3251/3089268872_1869860fbf_t.jpg")
@@ -131,15 +133,7 @@ class ViewController: UIViewController,
         }
     }
     
-    func exportImage() -> UIImage {
-        UIGraphicsBeginImageContext(tweetImageView.bounds.size)
-        var context: CGContextRef = UIGraphicsGetCurrentContext()
-        tweetImageView.layer.renderInContext(context)
-        let exportedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return exportedImage
-    }
-    
+    // IBActions
     @IBAction func saveImageTapped(sender: AnyObject) {
         let exportedImage = exportImage()
         UIImageWriteToSavedPhotosAlbum(exportedImage, nil, nil, nil)
