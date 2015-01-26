@@ -45,7 +45,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="7Ee-dg-XA4"/>
                                 </connections>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_canvas_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_canvas_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
                                 <rect key="frame" x="16" y="129" width="288" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="AAo-uE-ctZ"/>
@@ -54,6 +54,19 @@
                                     <constraint firstAttribute="height" constant="144" id="oPh-Md-z4Z"/>
                                 </constraints>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="headlineTextView" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-Sx-re0">
+                                <rect key="frame" x="16" y="273" width="288" height="72"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="288" id="JYZ-1F-I6G"/>
+                                    <constraint firstAttribute="height" constant="72" id="lGG-Vu-yb8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Q1S-V4-TVY"/>
+                                </connections>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Headline" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQV-Q0-mQI">
                                 <rect key="frame" x="53" y="153" width="214" height="75"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -70,7 +83,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NYt-eu-QGC">
-                                <rect key="frame" x="104" y="376" width="112" height="30"/>
+                                <rect key="frame" x="93" y="377" width="112" height="30"/>
                                 <state key="normal" title="Pick from album">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -79,7 +92,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN1-vW-pIX">
-                                <rect key="frame" x="9" y="377" width="87" height="30"/>
+                                <rect key="frame" x="217" y="415" width="87" height="30"/>
                                 <state key="normal" title="Save Locally">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -88,7 +101,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRF-u2-MOX">
-                                <rect key="frame" x="9" y="415" width="42" height="30"/>
+                                <rect key="frame" x="16" y="377" width="42" height="30"/>
                                 <state key="normal" title="Filters">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -97,7 +110,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXM-Vf-kaM">
-                                <rect key="frame" x="104" y="415" width="101" height="30"/>
+                                <rect key="frame" x="93" y="415" width="101" height="30"/>
                                 <state key="normal" title="Search Photos">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -105,19 +118,6 @@
                                     <segue destination="zNa-xs-bJe" kind="modal" identifier="showImageSearch" id="yUs-1d-ku3"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="headlineTextView" translatesAutoresizingMaskIntoConstraints="NO" id="OhX-Sx-re0">
-                                <rect key="frame" x="16" y="273" width="288" height="72"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="288" id="JYZ-1F-I6G"/>
-                                    <constraint firstAttribute="height" constant="72" id="lGG-Vu-yb8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Q1S-V4-TVY"/>
-                                </connections>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.95686274509803926" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>

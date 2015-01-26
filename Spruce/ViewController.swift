@@ -38,7 +38,7 @@ class ViewController: UIViewController,
     
     func initUIElements() {
         tweetImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        tweetImageView.clipsToBounds = true
+        tweetImageView.clipsToBounds = true // also set in storyboard
         headlineOverlayLabel.text = "Make your message beautiful, simply type."
         headlineTextView.text = headlineTextViewPlaceholder
         tweetBodyTextView.text = tweetBodyTextViewPlaceholder
@@ -49,7 +49,7 @@ class ViewController: UIViewController,
     }
     
     func exportImage() -> UIImage {
-        UIGraphicsBeginImageContext(tweetImageView.bounds.size)
+        UIGraphicsBeginImageContextWithOptions(tweetImageView.bounds.size, true, 2.0)
         var context: CGContextRef = UIGraphicsGetCurrentContext()
         tweetImageView.layer.renderInContext(context)
         let exportedImage = UIGraphicsGetImageFromCurrentImageContext()
