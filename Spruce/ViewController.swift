@@ -29,10 +29,11 @@ class ViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUIElements()
     }
     
     override func viewDidAppear(animated: Bool) {
-        initUIElements()
+//        initUIElements()
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,13 +119,15 @@ class ViewController: UIViewController,
 //    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showFilters" {
+        switch segue.identifier! {
+        case "showFilters":
             var filterVC = segue.destinationViewController as FilterViewController
             filterVC.canvasImage = originalImage
             filterVC.mainVC = self
-        } else if segue.identifier == "showImageSearch" {
+        case "showImageSearch":
             var imageSearchVC = segue.destinationViewController as ImageSearchViewController
             imageSearchVC.mainVC = self
+        default: println("No identifier")
         }
     }
     

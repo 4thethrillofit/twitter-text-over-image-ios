@@ -42,7 +42,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_canvas_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_canvas_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ooo-T8-mjn">
                                 <rect key="frame" x="16" y="129" width="288" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="288" id="Mbo-ci-O02"/>

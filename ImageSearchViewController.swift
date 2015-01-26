@@ -40,6 +40,7 @@ class ImageSearchViewController: UIViewController,
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         mainVC.originalImage = searchResults[indexPath.row]
+        mainVC.tweetImageView.image = searchResults[indexPath.row]
         dismissViewControllerAnimated(true, completion: nil)
     }
     
