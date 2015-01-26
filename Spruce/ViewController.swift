@@ -25,6 +25,7 @@ class ViewController: UIViewController,
     let headlineTextViewPlaceholder: String = "Type the message you want over the photo here"
     let tweetBodyTextViewPlaceholder: String = "Type your tweet here"
     var defaultImages: [UIImage]!
+    var originalImage: UIImage = UIImage(named: "default_canvas_image")!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +75,7 @@ class ViewController: UIViewController,
         headlineOverlayLabel.text = "Make your message beautiful, simply type."
         headlineTextView.text = headlineTextViewPlaceholder
         tweetBodyTextView.text = tweetBodyTextViewPlaceholder
+        tweetImageView.image = originalImage
         tweetImageView.addSubview(headlineOverlayLabel)
         tweetImageView.userInteractionEnabled = true
         headlineOverlayLabel.userInteractionEnabled = true
@@ -95,6 +97,7 @@ class ViewController: UIViewController,
     // UIImagePickerControllerDelegate
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         let image = info[UIImagePickerControllerOriginalImage] as UIImage
+        originalImage = image
         tweetImageView.image = image
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -111,6 +114,12 @@ class ViewController: UIViewController,
 //    func initPanGestureRecognizer() {
 //        var panGesture = UIPanGestureRecognizer(target: <#AnyObject#>, action: <#Selector#>)
 //    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var filterVC = segue.destinationViewController as FilterViewController
+        filterVC.canvasImage = originalImage
+        filterVC.mainVC = self
+    }
     
     func exportImage() -> UIImage {
         UIGraphicsBeginImageContext(tweetImageView.bounds.size)
@@ -136,13 +145,6 @@ class ViewController: UIViewController,
             cameraCtr.allowsEditing = true
             presentViewController(cameraCtr, animated: true, completion: nil)
         } else { presentAlert(message: "No camera available") }
-    }
-    
-    @IBAction func addFilterBtnTapped(sender: AnyObject) {
-        var filterVC = FilterViewController()
-        filterVC.canvasImage = tweetImageView.image
-        filterVC.modalPresentationStyle = UIModalPresentationStyle.OverCurrentContext
-        presentViewController(filterVC, animated: true, completion: nil)
     }
     
     @IBAction func importFromPhotoLibBtnTapped(sender: AnyObject) {

@@ -9,9 +9,12 @@
 import UIKit
 
 class FilterViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    var mainVC: ViewController!
 
     var canvasImage: UIImage!
-    var collectionView: UICollectionView!
+//    var collectionView: UICollectionView!
     var backBtn: UIButton!
     
     let kIntensity = 0.7
@@ -20,16 +23,6 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 100, height: 100)
-        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.whiteColor()
-        collectionView.registerClass(FilterCell.self, forCellWithReuseIdentifier: "FilterCell")
-        view.addSubview(collectionView)
-        setupUI()
         filters = imageFilters()
     }
 
@@ -40,7 +33,6 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
     // UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell: FilterCell = collectionView.dequeueReusableCellWithReuseIdentifier("FilterCell", forIndexPath: indexPath) as FilterCell
-        
         // prevent the block from re-running if the image has already been filered
         if cell.imageView.image == nil {
             cell.imageView.image = placeholderImage
@@ -61,24 +53,18 @@ class FilterViewController: UIViewController, UICollectionViewDelegate, UICollec
         return filters.count
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let filteredImage = applyImageFilter(canvasImage, filter: filters[indexPath.row])
+        mainVC.tweetImageView.image = filteredImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // IBAction
-    func backBtnTapped(button: UIButton) {
+    @IBAction func backBtnTapped(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     // Utilities
-    func setupUI() {
-        backBtn = UIButton()
-        backBtn.setTitle("Back", forState: UIControlState.Normal)
-        backBtn.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)
-        backBtn.titleLabel?.font = UIFont(name: "Superclarendon-Bold", size: 12)
-        backBtn.backgroundColor = UIColor.whiteColor()
-        backBtn.sizeToFit()
-        backBtn.center = CGPoint(x: view.frame.width / 8.0, y: 50)
-        backBtn.addTarget(self, action: "backBtnTapped:", forControlEvents: UIControlEvents.TouchUpInside)
-        view.addSubview(backBtn)
-    }
-    
     func imageFilters() -> [CIFilter] {
         let blur = CIFilter(name: "CIGaussianBlur")
         let instant = CIFilter(name: "CIPhotoEffectInstant")
