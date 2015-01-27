@@ -220,6 +220,7 @@
                     </view>
                     <connections>
                         <outlet property="imageResultsCollectionView" destination="clW-a7-xYG" id="QPI-9e-Td7"/>
+                        <outlet property="imageSearchTextField" destination="3YZ-F0-EWC" id="Stb-UE-y9k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oM7-i8-vgx" userLabel="First Responder" sceneMemberID="firstResponder"/>
