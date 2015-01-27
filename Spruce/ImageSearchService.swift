@@ -9,8 +9,8 @@
 import Foundation
 
 class ImageSearchService {
-    func getImageSearches(callback: ([NSDictionary]) -> ()) {
-        request("http://localhost:3000/api/images?term=corgi", callback: callback)
+    func getImageSearches(searchTerm:String = "mountains", callback: ([NSDictionary]) -> ()) {
+        request("http://localhost:3000/api/images?term=\(searchTerm)&mobile=true", callback: callback)
     }
     
     func request(url: String, callback: ([NSDictionary]) -> ()) {

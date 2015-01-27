@@ -13,7 +13,6 @@
 		A57A117C1A76EC2A0060B323 /* ImageSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A117B1A76EC2A0060B323 /* ImageSearchResultCell.swift */; };
 		A57A117E1A76EE130060B323 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A117D1A76EE130060B323 /* ImageSearchViewController.swift */; };
 		A57A11801A770DBD0060B323 /* ImageSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A117F1A770DBD0060B323 /* ImageSearchService.swift */; };
-		A57A11821A770DE40060B323 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57A11811A770DE40060B323 /* Settings.swift */; };
 		A585100B1A730D220025F893 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A585100A1A730D220025F893 /* ImageCell.swift */; };
 		A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D161A6F4AB10005B82B /* AppDelegate.swift */; };
 		A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A5AF1D181A6F4AB10005B82B /* Spruce.xcdatamodeld */; };
@@ -43,7 +42,6 @@
 		A57A117B1A76EC2A0060B323 /* ImageSearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchResultCell.swift; sourceTree = "<group>"; };
 		A57A117D1A76EE130060B323 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageSearchViewController.swift; path = ../ImageSearchViewController.swift; sourceTree = "<group>"; };
 		A57A117F1A770DBD0060B323 /* ImageSearchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageSearchService.swift; sourceTree = "<group>"; };
-		A57A11811A770DE40060B323 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		A585100A1A730D220025F893 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		A5AF1D111A6F4AB10005B82B /* Spruce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spruce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF1D151A6F4AB10005B82B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				A5AF1D1D1A6F4AB10005B82B /* Main.storyboard */,
 				A585100A1A730D220025F893 /* ImageCell.swift */,
 				A57A117F1A770DBD0060B323 /* ImageSearchService.swift */,
-				A57A11811A770DE40060B323 /* Settings.swift */,
 				A5AF1D201A6F4AB10005B82B /* Images.xcassets */,
 				A5AF1D221A6F4AB10005B82B /* LaunchScreen.xib */,
 				A5AF1D181A6F4AB10005B82B /* Spruce.xcdatamodeld */,
@@ -252,7 +249,6 @@
 				A5319D221A74E7D600468944 /* FilterCell.swift in Sources */,
 				A57A117E1A76EE130060B323 /* ImageSearchViewController.swift in Sources */,
 				A585100B1A730D220025F893 /* ImageCell.swift in Sources */,
-				A57A11821A770DE40060B323 /* Settings.swift in Sources */,
 				A5AF1D171A6F4AB10005B82B /* AppDelegate.swift in Sources */,
 				A5AF1D1A1A6F4AB10005B82B /* Spruce.xcdatamodeld in Sources */,
 				A57A11801A770DBD0060B323 /* ImageSearchService.swift in Sources */,

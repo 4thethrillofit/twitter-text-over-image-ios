@@ -31,7 +31,8 @@ class ImageSearchViewController: UIViewController,
     
     func fetchImages(callback: (UIImage) -> ()) {
         var resultImages = [UIImage]()
-        imageSearchService.getImageSearches {
+        let searchTerm = imageSearchTextField.text
+        imageSearchService.getImageSearches(searchTerm:searchTerm) {
             (images) in
             for image in images {
                 let imageURL = NSURL(string: image["url"]! as String)!
